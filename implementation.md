@@ -1,8 +1,32 @@
 # API Conventions Reference
 
+<a name="toc"></a>
+
+## Table of Contents
+- [Overview](#overview)
+- [Naming Conventions](#naming-conventions)
+- [HTTP Methods](#http-methods)
+- [Authentication](#authentication)
+- [Request and Response Formats](#request-response-formats)
+- [Status Codes](#status-codes)
+- [Error Handling](#error-handling)
+- [Pagination](#pagination)
+- [Versioning](#versioning)
+- [Rate Limiting](#rate-limiting)
+- [Sorting](#sorting)
+
+
+----------
+
+<a name="overview"></a>
+
+## Overview
+
 This document establishes common conventions and standards applicable to all APIs. API-specific details (endpoints, query parameters, examples) are documented in separate API specification files.
 
 ----------
+
+<a name="naming-conventions"></a>
 
 ## Naming Conventions
 
@@ -21,6 +45,8 @@ Establishes foundational naming rules for resources, fields, and parameters acro
 -   Boolean fields use  `is`,  `has`, or descriptive names (e.g.,  `tentative`,  `unplanned`)
 
 ----------
+
+<a name="http-methods"></a>
 
 ## HTTP Methods
 
@@ -49,9 +75,13 @@ Defines how HTTP verbs map to operations on API resources.
 
 ----------
 
+<a name="authentication"></a>
+
 ## Authentication
 
 Specifies security mechanisms for API access and authorization.
+
+Authentication protocol is left to the discretion of the event creator, and should be discussed with API users a priori. The suggested protocol to utilize is OAuth 2.0 for secure communication. Include the access token in the Authorization header: Authorization: Bearer {token}.
 
 **Mechanism:**  OAuth 2.0 (Client Credentials or Authorization Code grant)
 
@@ -84,6 +114,8 @@ X-Request-ID: {uuid}
 -   `403 Forbidden`  - Insufficient permissions
 
 ----------
+
+<a name="request-response-formats"></a>
 
 ## Request and Response Formats
 
@@ -129,6 +161,8 @@ json
 
 ----------
 
+<a name="status-codes"></a>
+
 ## Status Codes
 
 Follow standard HTTP status codes per RFC 7231.
@@ -155,6 +189,8 @@ Follow standard HTTP status codes per RFC 7231.
 -   `503 Service Unavailable`  - Temporary outage
 
 ----------
+
+<a name="error-handling"></a>
 
 ## Error Handling
 
@@ -199,6 +235,8 @@ json
 
 ----------
 
+<a name="pagination"></a>
+
 ## Pagination
 
 Defines standard approach for handling large result sets.
@@ -233,6 +271,8 @@ json
 
 ----------
 
+<a name="versioning"></a>
+
 ## Versioning
 
 Defines API evolution and backward compatibility strategy.
@@ -248,6 +288,8 @@ Defines API evolution and backward compatibility strategy.
 -   Provide 6-month deprecation notice
 
 ----------
+
+<a name="rate-limiting"></a>
 
 ## Rate Limiting
 
@@ -290,6 +332,8 @@ Includes  `Retry-After: {seconds}`  header.
 -   Cache responses to reduce API calls
 
 ----------
+
+<a name="sorting"></a>
 
 ## Sorting
 
